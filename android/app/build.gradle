@@ -16,6 +16,11 @@ android {
     compileSdk rootProject.ext.compileSdkVersion
 
     namespace "com.bangalorecabbookingapp"
+    packagingOptions {
+    	jniLibs {
+        useLegacyPackaging true
+    	}
+    }
 
     defaultConfig {
         applicationId "com.bangalorecabbookingapp"

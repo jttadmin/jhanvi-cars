@@ -35,3 +35,26 @@ jobs:
           tags: |
             jhanviadmin/jhanvi-cars-backend:latest
             jhanviadmin/jhanvi-cars-backend:${{ github.sha }}
+jobs:
+
+  build-and-push:
+    runs-on: ubuntu-latest
+
+    # your existing CI steps...
+
+
+  deploy:
+    runs-on: self-hosted
+    needs: build-and-push
+
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v4
+
+      - name: Verify Kubernetes
+        run: |
+          kubectl get nodes
+
+      - name: Deploy to Minikube
+        run: |
+          kubectl apply -f k8s/

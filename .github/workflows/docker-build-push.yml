@@ -1,11 +1,7 @@
-name: Jhanvi Cars Backend CI
+name: Jhanvi Cars CI/CD
 
 on:
   push:
-    branches:
-      - main
-
-  pull_request:
     branches:
       - main
 
@@ -14,7 +10,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-
       - name: Checkout source code
         uses: actions/checkout@v4
 
@@ -35,13 +30,6 @@ jobs:
           tags: |
             jhanviadmin/jhanvi-cars-backend:latest
             jhanviadmin/jhanvi-cars-backend:${{ github.sha }}
-jobs:
-
-  build-and-push:
-    runs-on: ubuntu-latest
-
-    # your existing CI steps...
-
 
   deploy:
     runs-on: self-hosted

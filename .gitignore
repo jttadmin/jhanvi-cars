@@ -75,3 +75,28 @@ yarn-error.log
 
 # Google Maps / API secrets
 android/secrets.properties
+
+# Jhanvi Cars backend
+backend-recovered/app/node_modules/
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+backend-recovered/app/.env
+backend-recovered/app/.env.*
+
+# Database backups
+*.sql
+*.sql.gz
+
+# Docker / backup archives
+*.tar
+*.tar.gz
+
+# Terraform generated files
+terraform/.terraform/
+terraform/*.tfstate
+terraform/*.tfstate.*
+terraform/crash.log
+terraform/crash.*.log

@@ -1,0 +1,39 @@
+services:
+
+  postgres:
+    image: postgres:16
+    container_name: jhanvi-cars-postgres
+    environment:
+      POSTGRES_DB: cabbooking
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: jhanvi_dev_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - jhanvi-cars-network
+
+  backend:
+    image: jhanviadmin/jhanvi-cars-backend:1.0
+    container_name: jhanvi-cars-backend
+    depends_on:
+      - postgres
+    environment:
+      PORT: 3000
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_NAME: cabbooking
+      DB_USER: postgres
+      DB_PASSWORD: jhanvi_dev_password
+      JWT_SECRET: jhanvi-cars-local-practice-secret-2026
+    ports:
+      - "3000:3000"
+    networks:
+      - jhanvi-cars-network
+
+networks:
+  jhanvi-cars-network:
+
+volumes:
+  postgres_data:

@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: jhanviadmin/jhanvi-cars-backend:latest
+          image: jhanviadmin/jhanvi-cars-backend:IMAGE_TAG
           ports:
             - containerPort: 3000
           env:
